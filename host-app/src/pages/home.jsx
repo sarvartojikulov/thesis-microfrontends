@@ -8,7 +8,7 @@ const Homepage = () => {
             <div className="hero bg-base-300 py-20 px-12 rounded-lg mb-12">
                 <div className="hero-content flex-col lg:flex-row-reverse gap-24">
                     <img
-                        src="public/daftpunk.jpeg"
+                        src="/daftpunk.jpeg"
                         className="max-w-xs w-full rounded-lg shadow-2xl"
                     />
                     <div>

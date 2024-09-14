@@ -6,7 +6,7 @@ const Card = ({ title, description, link }) => {
     return (
         <div className={tw("card bg-base-100 w-96 shadow-xl relative")}>
             <figure className={tw("")}>
-                <img src="public/pinkfloyd.jpeg" alt="Shoes" />
+                <img src="/pinkfloyd.jpeg" alt="Shoes" />
             </figure>
             <div
                 className={tw(

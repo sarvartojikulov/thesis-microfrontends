@@ -1,4 +1,5 @@
 import { useState } from "react";
+import tw from "../utils/tw";
 
 // type Seat = {
 //   id: number
@@ -49,49 +50,49 @@ export default function SeatReservation({onConfirm}) {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-4">
-            <div className="grid grid-cols-10 gap-2 mb-4 text-white">
+        <div className={tw("max-w-4xl mx-auto p-4")}>
+            <div className={tw("grid grid-cols-10 gap-2 mb-4 text-white")}>
                 {seats.map((seat) => (
                     <button
                         key={seat.id}
                         onClick={() => toggleSeat(seat.id)}
-                        className={`w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold ${
+                        className={tw(`w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold ${
                             seat.status === "available"
                                 ? "bg-green-500 hover:bg-green-600"
                                 : seat.status === "selected"
                                 ? "bg-blue-500 hover:bg-blue-600"
                                 : "bg-gray-500 cursor-not-allowed"
-                        }`}
+                        }`)}
                         disabled={seat.status === "reserved"}
                     >
                         {seat.number}
                     </button>
                 ))}
             </div>
-            <div className="flex justify-between items-center mb-4">
+            <div className={tw("flex justify-between items-center mb-4")}>
                 <div>
                     <p>Ausgewählt: {selectedSeats.length}</p>
                     <p>Gesamtpreis: ${totalPrice}</p>
                 </div>
                 <button
-                    className="btn btn-primary"
+                    className={tw("btn btn-primary")}
                     onClick={confirmReservation}
                     disabled={selectedSeats.length === 0}
                 >
                     Auswahl bestätigen
                 </button>
             </div>
-            <div className="flex justify-center space-x-4">
-                <div className="flex items-center">
-                    <div className="w-4 h-4 bg-green-500 rounded-sm mr-2"></div>
+            <div className={tw("flex justify-center space-x-4")}>
+                <div className={tw("flex items-center")}>
+                    <div className={tw("w-4 h-4 bg-green-500 rounded-sm mr-2")}></div>
                     <span>Verfügbar</span>
                 </div>
-                <div className="flex items-center">
-                    <div className="w-4 h-4 bg-blue-500 rounded-sm mr-2"></div>
+                <div className={tw("flex items-center")}>
+                    <div className={tw("w-4 h-4 bg-blue-500 rounded-sm mr-2")}></div>
                     <span>Ausgewählt</span>
                 </div>
-                <div className="flex items-center">
-                    <div className="w-4 h-4 bg-gray-500 rounded-sm mr-2"></div>
+                <div className={tw("flex items-center")}>
+                    <div className={tw("w-4 h-4 bg-gray-500 rounded-sm mr-2")}></div>
                     <span>Reserviert</span>
                 </div>
             </div>
