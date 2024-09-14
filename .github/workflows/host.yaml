@@ -5,6 +5,10 @@ on:
       - main
     paths:
       - 'host-app/**'
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Deploy' 
 defaults:
   run:
     working-directory: host-app
