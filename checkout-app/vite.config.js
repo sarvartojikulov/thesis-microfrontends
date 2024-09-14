@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
 // https://vitejs.dev/config/
+/** @type {import('vite').UserConfig} */
 export default defineConfig({
     server: {
         port : 4001,
@@ -38,5 +39,6 @@ export default defineConfig({
         target: "esnext",
         minify: false,
         cssCodeSplit: false,
+        assetsDir : "checkout/latest"
     },
 });

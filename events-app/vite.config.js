@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
 // https://vitejs.dev/config/
+/** @type {import('vite').UserConfig} */
 export default defineConfig({
     preview : {
         port : 4000,
@@ -35,5 +36,6 @@ export default defineConfig({
         target: "esnext",
         minify: false,
         cssCodeSplit: false,
+        assetsDir : "events/latest"
     },
 });

@@ -1,6 +1,7 @@
 import React from "react";
+import MFWrapper from "../components/MFWrapper";
 
-const PopularEvents = React.lazy(() => import("events/PopularEvents"))
+const PopularEvents = React.lazy(() => import("events/PopularEvents"));
 
 const Homepage = () => {
     return (
@@ -26,9 +27,11 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
-            
+
             <React.Suspense fallback="Loading...">
-                <PopularEvents />
+                <MFWrapper type="events">
+                    <PopularEvents />
+                </MFWrapper>
             </React.Suspense>
         </>
     );
