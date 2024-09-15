@@ -47,6 +47,7 @@ export default defineConfig(({ mode, isPreview }) => {
 
             minify: false,
             cssCodeSplit: false,
+            assetsDir : ""
         },
     };
 });
