@@ -36,6 +36,7 @@ export default defineConfig({
         target: "esnext",
         minify: false,
         cssCodeSplit: false,
-        assetsDir : "events/latest"
+        assetsDir : ""
     },
+    base : mode === "production" ? "/events-app/latest" : "/"
 });

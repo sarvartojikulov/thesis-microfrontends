@@ -39,6 +39,7 @@ export default defineConfig({
         target: "esnext",
         minify: false,
         cssCodeSplit: false,
-        assetsDir : "checkout/latest"
+        assetsDir : ""
     },
+    base : mode === "production" ? "/checkout-app/latest" : "/"
 });

@@ -44,11 +44,10 @@ export default defineConfig(({ mode, isPreview }) => {
         build: {
             modulePreload: false,
             target: "esnext",
-
             minify: false,
             cssCodeSplit: false,
             assetsDir : ""
         },
-        base : "/host-app/latest"
+        base : mode === "production" ? "/host-app/latest" : "/"
     };
 });
