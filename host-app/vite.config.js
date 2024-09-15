@@ -49,5 +49,6 @@ export default defineConfig(({ mode, isPreview }) => {
             cssCodeSplit: false,
             assetsDir : ""
         },
+        base : "/host-app/latest"
     };
 });
