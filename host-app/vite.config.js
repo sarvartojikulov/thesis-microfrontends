@@ -3,9 +3,9 @@ import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 
 const remotesLocal = {
-    events: "http://localhost:4000/events/latest/remoteEntry.js",
-    popularEvents: "http://localhost:4000/events/latest/remoteEntry.js",
-    checkout: "http://localhost:4001/checkout/latest/remoteEntry.js",
+    events: "http://localhost:4000/latest/remoteEntry.js",
+    popularEvents: "http://localhost:4000/latest/remoteEntry.js",
+    checkout: "http://localhost:4001/latest/remoteEntry.js",
 };
 
 // https://vitejs.dev/config/
@@ -17,9 +17,9 @@ export default defineConfig(({ mode, isPreview }) => {
     const remotes = isPreview
         ? remotesLocal
         : {
-              events: `${domain}/events/latest/remoteEntry.js`,
-              popularEvents: `${domain}/events/latest/remoteEntry.js`,
-              checkout: `${domain}/checkout/latest/remoteEntry.js`,
+              events: `${domain}/events-app/latest/remoteEntry.js`,
+              popularEvents: `${domain}/events-app/latest/remoteEntry.js`,
+              checkout: `${domain}/checkout-app/latest/remoteEntry.js`,
           };
 
     return {
