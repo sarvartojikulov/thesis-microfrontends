@@ -8,25 +8,25 @@ const PopularEvents = React.lazy(() => import("events/PopularEvents"));
 const Homepage = () => {
     return (
         <>
-            <div className="hero bg-base-300 py-20 px-12 rounded-lg mb-12">
-                <div className="hero-content flex-col lg:flex-row-reverse gap-24">
+            <div className="hero bg-base-300 py-10 px-5 md:py-20 md:px-12 rounded-lg mb-12">
+                <div className="hero-content flex-col lg:flex-row-reverse gap-12 md:gap-24">
                     <img
                         src={getImageLink("/daftpunk.jpeg")}
                         className="max-w-xs w-full rounded-lg shadow-2xl"
                     />
                     <div>
-                        <h1 className="text-5xl font-bold">
+                        <h1 className="text-xl md:text-5xl font-bold">
                             Discover and Book Amazing Events Effortlessly
                         </h1>
-                        <p className="py-6">
+                        <p className="py-4 md:py-6">
                             Looking for exciting events to attend? Whether it’s
                             concerts, festivals, conferences, or workshops,
                             we’ve got you covered! At Lukap, we make it easy to
                             find, explore, and book events that match your
                             interests, all in just a few clicks.
                         </p>
-                        <Link to="events">
-                            <button className="btn btn-primary">Book now</button>
+                        <Link to="events" className="w-full">
+                            <button className="btn btn-primary w-full">All Events</button>
                         </Link>
                     </div>
                 </div>

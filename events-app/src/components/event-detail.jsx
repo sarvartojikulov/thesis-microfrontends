@@ -5,18 +5,18 @@ import { Link, useParams } from "react-router-dom";
 import events from "../events";
 
 const EventDetail = () => {
-    let {id} = useParams();
+    let { id } = useParams();
 
-    const event = events[id]
-    if(!event) {
-        return (
-            <div>Not found</div>
-        )
+    const event = events[id];
+    if (!event) {
+        return <div>Not found</div>;
     }
 
     return (
-        <div className={tw("py-12 px-16 bg-base-300 rounded-lg")}>
-            <div className={tw("w-full flex gap-12")}>
+        <div
+            className={tw("py-6 px-8 lg:py-12 lg:px-16 bg-base-300 rounded-lg")}
+        >
+            <div className={tw("w-full flex flex-col md:flex-row gap-12")}>
                 <div className={tw("max-w-sm")}>
                     <figure className={tw("")}>
                         <img src={event.image} alt="Pink Floyd" />
@@ -31,21 +31,24 @@ const EventDetail = () => {
                         fugiat laboris esse sint ipsum quis exercitation
                         deserunt aute.
                     </p>
-                    <div className={tw("grid grid-cols-2 w-full")}>
+                    <div className={tw("grid grid-cols-[1fr_2fr] w-full")}>
                         <span className={tw("font-bold")}>Stadt :</span>{" "}
                         <span>{event.location}</span>
                         <span className={tw("font-bold")}>Datum: </span>
-                        <span>{event.date}</span>
+                        <span>
+                            {event.dates[0]} -{" "}
+                            {event.dates[event.dates.length - 1]}{" "}
+                        </span>
                         <span className={tw("font-bold")}>Verfügbar: </span>
                         <span>10 Tickets</span>
                     </div>
 
                     <Select
                         label="Datum auswählen"
-                        items={["24.06.2025", "25.06.2025"]}
+                        items={event.dates}
                     ></Select>
 
-                    <Link to={"/checkout/" + id}>
+                    <Link to={"/checkout/" + id} className={tw("w-full")}>
                         <button
                             className={tw("btn btn-primary w-full mt-auto")}
                         >

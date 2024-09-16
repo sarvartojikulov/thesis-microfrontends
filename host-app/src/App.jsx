@@ -21,7 +21,7 @@ const MFE_App= (MFE, type) => {
 
 function App() {
     return (
-        <main className="container mx-auto min-h-screen ">
+        <main className="container mx-auto min-h-screen px-4 md:px-0">
             <Router>
             <Navbar />
                 <Routes>

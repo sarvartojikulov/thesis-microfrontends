@@ -25,10 +25,10 @@ const CheckoutPage = () => {
             </div>
             <div
                 className={tw(
-                    "py-12 px-16 bg-base-300 rounded-lg flex flex-col gap-12"
+                    "py-6 px-8 md:py-12 md:px-16 bg-base-300 rounded-lg flex flex-col gap-12"
                 )}
             >
-                <div className={tw("w-full flex gap-12")}>
+                <div className={tw("w-full flex flex-col items-center md:flex-row gap-12")}>
                     <div className={tw("max-w-sm")}>
                         <figure className={tw("")}>
                             <img
@@ -38,15 +38,15 @@ const CheckoutPage = () => {
                             />
                         </figure>
                     </div>
-                    <div className={tw("flex flex-col items-start gap-6")}>
+                    <div className={tw("flex flex-col items-start gap-6 w-full")}>
                         <h1 className={tw("text-4xl font-bold")}>
                             {event.name}
                         </h1>
-                        <div className={tw("grid grid-cols-2 w-full")}>
+                        <div className={tw("grid grid-cols-[1fr_2fr] w-full")}>
                             <span className={tw("font-bold")}>Stadt :</span>{" "}
                             <span>{event.location}</span>
                             <span className={tw("font-bold")}>Datum: </span>
-                            <span>{event.date}</span>
+                            <span>{event.dates[0]} -  {event.dates[event.dates.length - 1]}</span>
                             <span className={tw("font-bold")}>Verfügbar: </span>
                             <span>10 Tickets</span>
                         </div>
@@ -55,24 +55,25 @@ const CheckoutPage = () => {
             </div>
             <div
                 className={tw(
-                    "py-8 px-16 bg-base-300 rounded-lg flex flex-col gap-12"
+                    "py-4 px-2 lg:py-8 lg:px-16 bg-base-300 rounded-lg flex flex-col gap-12"
                 )}
             >
-                <h1 className={tw("text-3xl font-bold")}>Platzauswahl</h1>
+                <h1 className={tw("text-3xl font-bold px-4 lg:px-0")}>Platzauswahl</h1>
 
                 <div className={tw("flex w-full flex-col")}>
                     <div
-                        className={tw("card bg-base-100 rounded-box py-4 px-6")}
+                        className={tw("card bg-base-100 rounded-box py-4 px-0")}
                     >
                         <SeatReservation onConfirm={setTickets} />
                     </div>
                 </div>
             </div>
+
             {tickets && tickets.length > 0 && (
                 <>
                     <div
                         className={tw(
-                            "py-8 px-16 bg-base-300 rounded-lg flex flex-col gap-12"
+                            "py-4 px-8 lg:py-8 lg:px-16 bg-base-300 rounded-lg flex flex-col gap-12"
                         )}
                     >
                         <h1 className={tw("text-3xl font-bold")}>
@@ -82,12 +83,12 @@ const CheckoutPage = () => {
                         <div className={tw("flex w-full flex-col")}>
                             <div
                                 className={tw(
-                                    "card bg-base-100 rounded-box py-4 pb-8 px-6 space-y-4 "
+                                    "card bg-base-100 rounded-box py-4 pb-8 lg:px-6 space-y-4"
                                 )}
                             >
                                 <div
                                     className={tw(
-                                        "flex flex-row gap-4 w-3/4 justify-center mx-auto"
+                                        "flex flex-col md:flex-row gap-4 w-3/4 justify-center mx-auto"
                                     )}
                                 >
                                     <Input label="Name" />
@@ -95,7 +96,7 @@ const CheckoutPage = () => {
                                 </div>
                                 <div
                                     className={tw(
-                                        "flex flex-row gap-4 w-3/4 justify-center mx-auto"
+                                        "flex flex-col md:flex-row gap-4 w-3/4 justify-center mx-auto"
                                     )}
                                 >
                                     <Input label="Email" />
@@ -103,7 +104,7 @@ const CheckoutPage = () => {
                                 </div>
                                 <div
                                     className={tw(
-                                        "flex flex-row gap-4 w-3/4 justify-center mx-auto"
+                                        "flex flex-col md:flex-row gap-4 w-3/4 justify-center mx-auto"
                                     )}
                                 >
                                     <Input label="Straße und Hausnummer" />
@@ -111,7 +112,7 @@ const CheckoutPage = () => {
                                 </div>
                                 <div
                                     className={tw(
-                                        "flex flex-row gap-4 w-3/4 justify-center mx-auto"
+                                        "flex flex-col md:flex-row gap-4 w-3/4 justify-center mx-auto"
                                     )}
                                 >
                                     <Input label="Stadt" />
@@ -124,13 +125,13 @@ const CheckoutPage = () => {
                         <div className={tw("flex w-full flex-col")}>
                             <div
                                 className={tw(
-                                    "card bg-base-100 rounded-box py-12  px-20 space-y-4 flex-col items-center justify-center"
+                                    "card bg-base-100 rounded-box py-6 lg:py-12 px-10 lg:px-20 space-y-4 flex-col items-center justify-center"
                                 )}
                             >
                                 <div className={tw("w-full")}>
                                     <div
                                         className={tw(
-                                            "flex flex-row gap-4  justify-center mx-auto"
+                                            "flex flex-col md:flex-row gap-4  justify-center mx-auto"
                                         )}
                                     >
                                         <Input label="Inhaber" />
@@ -138,7 +139,7 @@ const CheckoutPage = () => {
                                     </div>
                                     <div
                                         className={tw(
-                                            "flex flex-row gap-4  justify-center mx-auto"
+                                            "flex flex-col md:flex-row gap-4  justify-center mx-auto"
                                         )}
                                     >
                                         <Input label="Ablaufdatum" />
@@ -147,9 +148,9 @@ const CheckoutPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <Link to={"thanks"}>
+                        <Link to={"thanks"} className="flex justify-center">
                             <button
-                                className={tw("btn btn-primary mx-auto px-20")}
+                                className={tw("btn btn-primary px-20")}
                             >
                                 Bezahlen
                             </button>

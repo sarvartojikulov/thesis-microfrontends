@@ -4,17 +4,17 @@ import tw from "../utils/tw";
 
 const Card = ({ title, img, description, link }) => {
     return (
-        <div className={tw("card bg-base-100 w-96 shadow-xl relative")}>
+        <div className={tw("card bg-base-100 relative shadow-xl")}>
             <figure className={tw("")}>
-                <img src={img ?? "/pinkfloyd.jpeg"} alt="Shoes" />
+                <img className={tw("")} src={img ?? "/pinkfloyd.jpeg"} alt="Shoes" />
             </figure>
             <div
                 className={tw(
-                    "card-body bg-base-100 w-full absolute z-10 bottom-0 "
+                    "card-body absolute bg-base-100 w-full z-10 bottom-0 px-5 py-4"
                 )}
             >
                 <h2 className={tw("card-title")}>{title}</h2>
-                <div>
+                <div className={tw("text-sm")}>
                     <p>25.04.2025 - 06.06.2025</p>
                     <p>{description}</p>
                 </div>
