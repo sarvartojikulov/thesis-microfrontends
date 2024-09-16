@@ -17,7 +17,7 @@ export default {
   darkMode: "class",
   plugins: [require('daisyui'),],
   daisyui: {
-    themes: ["emberald", "dark", "light"],
+    themes: [ "light"],
   },
 }
 
