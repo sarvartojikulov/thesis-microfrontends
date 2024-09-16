@@ -1,9 +1,9 @@
 const domain = import.meta.env.VITE_PRODUCTION_DOMAIN
-const base_url = import.meta.env.BASE_URL
+const base_url = "/events-app/latest"
 
 function imageLink(src) {
     if(domain) {
-        return domain + "/events-app/latest" + src
+        return domain + base_url + src
     }
     return base_url + src
 }
