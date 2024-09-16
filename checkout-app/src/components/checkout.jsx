@@ -1,10 +1,18 @@
 import React from "react";
 import SeatReservation from "../components/SetaResservation";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import tw from "../utils/tw";
+import events from "../../../events-app/src/events";
 
 const CheckoutPage = () => {
+    let { id } = useParams();
     const [tickets, setTickets] = React.useState();
+
+    const event = events[id];
+
+    if (!event) {
+        return <>Event not found</>;
+    }
 
     return (
         <section className={tw("space-y-6")}>
@@ -25,20 +33,20 @@ const CheckoutPage = () => {
                         <figure className={tw("")}>
                             <img
                                 className={tw(" h-48")}
-                                src="../pinkfloyd.jpeg"
+                                src={event.image}
                                 alt="Pink Floyd"
                             />
                         </figure>
                     </div>
                     <div className={tw("flex flex-col items-start gap-6")}>
                         <h1 className={tw("text-4xl font-bold")}>
-                            Daft Punk 2024
+                            {event.name}
                         </h1>
                         <div className={tw("grid grid-cols-2 w-full")}>
                             <span className={tw("font-bold")}>Stadt :</span>{" "}
-                            <span>Frankfurt am Main</span>
+                            <span>{event.location}</span>
                             <span className={tw("font-bold")}>Datum: </span>
-                            <span>24.06.2025</span>
+                            <span>{event.date}</span>
                             <span className={tw("font-bold")}>Verfügbar: </span>
                             <span>10 Tickets</span>
                         </div>

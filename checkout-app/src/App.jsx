@@ -8,8 +8,8 @@ function App() {
     return (
         <>
             <Routes>
-                <Route index path={`/`} element={<CheckoutPage />} />
-                <Route exact path={`/thanks`} element={<CheckoutThanksPage />} />
+                <Route index path={`/:id`} element={<CheckoutPage />} />
+                <Route exact path={`/:id/thanks`} element={<CheckoutThanksPage />} />
             </Routes>
         </>
     );

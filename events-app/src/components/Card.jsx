@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import tw from "../utils/tw";
 
-const Card = ({ title, description, link }) => {
+const Card = ({ title, img, description, link }) => {
     return (
         <div className={tw("card bg-base-100 w-96 shadow-xl relative")}>
             <figure className={tw("")}>
-                <img src="/pinkfloyd.jpeg" alt="Shoes" />
+                <img src={img ?? "/pinkfloyd.jpeg"} alt="Shoes" />
             </figure>
             <div
                 className={tw(

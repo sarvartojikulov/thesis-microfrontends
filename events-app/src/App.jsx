@@ -6,7 +6,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
     return (
-
         <>
             <Routes>
                 <Route index path={`/`} element={<Events />} />
