@@ -18,7 +18,7 @@ const Events = () => {
 
     return (
         <div>
-            {lastViewedEvents && (
+            {lastViewedEvents && lastViewedEvents.length > 0 && (
                 <div
                     className={tw(
                         "bg-base-300 py-10 px-12 space-y-20 rounded-lg mb-20"
