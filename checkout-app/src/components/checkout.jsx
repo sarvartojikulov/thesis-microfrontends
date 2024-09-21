@@ -1,11 +1,12 @@
 import React from "react";
 import SeatReservation from "../components/SetaResservation";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate} from "react-router-dom";
 import tw from "../utils/tw";
 import events from "../../../events-app/src/events";
 
 const CheckoutPage = () => {
     let { id } = useParams();
+    const navigate = useNavigate();
     const [tickets, setTickets] = React.useState();
 
     const event = events[id];
@@ -13,6 +14,40 @@ const CheckoutPage = () => {
     if (!event) {
         return <>Event not found</>;
     }
+
+    React.useEffect(() => {
+        const lastViewed = localStorage.getItem("lastViewed");
+
+        if (!lastViewed) {
+            const data = JSON.stringify({ items: [id] });
+            localStorage.setItem("lastViewed", data);
+            return;
+        }
+
+        const data = JSON.parse(lastViewed).items;
+
+        if (data.includes(id)) {
+            return;
+        }
+
+        data.push(id);
+        localStorage.setItem("lastViewed", JSON.stringify({ items: data }));
+    }, []);
+
+    const onCheckout = () => {
+        const lastViewed = localStorage.getItem("lastViewed");
+        const data = JSON.parse(lastViewed).items;
+
+        const index = data.indexOf(id);
+
+        if (index < 0) {
+            return;
+        }
+
+        data.splice(index, 1);
+        localStorage.setItem("lastViewed", JSON.stringify({ items: data }));
+        navigate("thanks");
+    };
 
     return (
         <section className={tw("space-y-6")}>
@@ -28,7 +63,11 @@ const CheckoutPage = () => {
                     "py-6 px-8 md:py-12 md:px-16 bg-base-300 rounded-lg flex flex-col gap-12"
                 )}
             >
-                <div className={tw("w-full flex flex-col items-center md:flex-row gap-12")}>
+                <div
+                    className={tw(
+                        "w-full flex flex-col items-center md:flex-row gap-12"
+                    )}
+                >
                     <div className={tw("max-w-sm")}>
                         <figure className={tw("")}>
                             <img
@@ -38,7 +77,9 @@ const CheckoutPage = () => {
                             />
                         </figure>
                     </div>
-                    <div className={tw("flex flex-col items-start gap-6 w-full")}>
+                    <div
+                        className={tw("flex flex-col items-start gap-6 w-full")}
+                    >
                         <h1 className={tw("text-4xl font-bold")}>
                             {event.name}
                         </h1>
@@ -46,7 +87,10 @@ const CheckoutPage = () => {
                             <span className={tw("font-bold")}>Stadt :</span>{" "}
                             <span>{event.location}</span>
                             <span className={tw("font-bold")}>Datum: </span>
-                            <span>{event.dates[0]} -  {event.dates[event.dates.length - 1]}</span>
+                            <span>
+                                {event.dates[0]} -{" "}
+                                {event.dates[event.dates.length - 1]}
+                            </span>
                             <span className={tw("font-bold")}>Verfügbar: </span>
                             <span>10 Tickets</span>
                         </div>
@@ -58,7 +102,9 @@ const CheckoutPage = () => {
                     "py-4 px-2 lg:py-8 lg:px-16 bg-base-300 rounded-lg flex flex-col gap-12"
                 )}
             >
-                <h1 className={tw("text-3xl font-bold px-4 lg:px-0")}>Platzauswahl</h1>
+                <h1 className={tw("text-3xl font-bold px-4 lg:px-0")}>
+                    Platzauswahl
+                </h1>
 
                 <div className={tw("flex w-full flex-col")}>
                     <div
@@ -148,13 +194,12 @@ const CheckoutPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <Link to={"thanks"} className="flex justify-center">
-                            <button
-                                className={tw("btn btn-primary px-20")}
-                            >
-                                Bezahlen
-                            </button>
-                        </Link>
+                        <button
+                            className={tw("btn btn-primary px-20")}
+                            onClick={onCheckout}
+                        >
+                            Bezahlen
+                        </button>
                     </div>
                 </>
             )}

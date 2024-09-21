@@ -4,7 +4,7 @@ import tw from "../utils/tw";
 
 const Card = ({ title, img, description, link }) => {
     return (
-        <div className={tw("card bg-base-100 relative shadow-xl")}>
+        <div className={tw("card bg-base-100 relative shadow-xl max-h-[400px] max-w-[290px]")}>
             <figure className={tw("")}>
                 <img className={tw("")} src={img ?? "/pinkfloyd.jpeg"} alt="Shoes" />
             </figure>
