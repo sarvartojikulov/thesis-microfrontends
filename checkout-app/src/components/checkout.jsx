@@ -9,7 +9,7 @@ const CheckoutPage = () => {
     const navigate = useNavigate();
     const [tickets, setTickets] = React.useState();
 
-    const event = events[id];
+    const event = events.find(event => event.id == id);
 
     if (!event) {
         return <>Event not found</>;

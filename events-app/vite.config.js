@@ -6,6 +6,10 @@ import federation from "@originjs/vite-plugin-federation";
 /** @type {import('vite').UserConfig} */
 export default defineConfig(({ mode }) => {
     return {
+        server: {
+            port: 4000,
+            strictPort: true,
+        },
         preview: {
             port: 4000,
             strictPort: true,
@@ -37,8 +41,9 @@ export default defineConfig(({ mode }) => {
             target: "esnext",
             minify: false,
             cssCodeSplit: false,
-            assetsDir: "",
+            assetsDir : ""
         },
         base: mode === "production" ? "/events-app/latest" : "/",
+        
     };
 });

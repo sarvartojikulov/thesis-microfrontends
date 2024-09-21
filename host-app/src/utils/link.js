@@ -1,9 +1,13 @@
-const mode = import.meta.env.MODE
-const base_url = import.meta.env.BASE_URL
+const domain = import.meta.env.VITE_PRODUCTION_DOMAIN;
+const base_url = import.meta.env.BASE_URL;
 
-export function getImageLink(imgSrc) {
-    if(mode === "development") {
-        return imgSrc
+export function imageLink(src) {
+    if(import.meta.env.DEV) {
+        return domain + src;
     }
-    return base_url + imgSrc
+
+    if (domain) {
+        return domain + base_url + src;
+    }
+    return base_url + src;
 }

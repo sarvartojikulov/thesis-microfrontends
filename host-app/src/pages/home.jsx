@@ -1,7 +1,7 @@
 import React from "react";
 import MFWrapper from "../components/MFWrapper";
 import {Link} from "react-router-dom"
-import { getImageLink } from "../utils/link";
+import {imageLink} from "../utils/link"
 
 const PopularEvents = React.lazy(() => import("events/PopularEvents"));
 
@@ -11,7 +11,7 @@ const Homepage = () => {
             <div className="hero bg-base-300 py-10 px-5 md:py-20 md:px-12 rounded-lg mb-12">
                 <div className="hero-content flex-col lg:flex-row-reverse gap-12 md:gap-24">
                     <img
-                        src={getImageLink("/daftpunk.jpeg")}
+                        src={imageLink("/daftpunk.jpeg")}
                         className="max-w-xs w-full rounded-lg shadow-2xl"
                     />
                     <div>

@@ -27,7 +27,7 @@ const Events = () => {
                     <h1 className={tw("text-4xl font-bold")}>Last viewed</h1>
                     <div
                         className={tw(
-                            "flex flex-col gap-y-4 md:flex-row items-center  w-full md:space-x-5"
+                            "gap-y-4 w-full md:gap-x-5 grid grid-cols-1 md:grid-cols-3"
                         )}
                     >
                         {events
@@ -40,7 +40,7 @@ const Events = () => {
                                     title={item.name}
                                     description={item.location}
                                     img={item.image}
-                                    link={`${idx}`}
+                                    link={`${item.id}`}
                                 />
                             ))}
                     </div>
@@ -54,7 +54,7 @@ const Events = () => {
                 <h1 className={tw("text-4xl font-bold")}>Events</h1>
                 <div
                     className={tw(
-                        "flex flex-col gap-y-4 md:flex-row items-center justify-between w-full md:space-x-5"
+                        "gap-y-4 w-full md:gap-x-5 grid grid-cols-1 md:grid-cols-3"
                     )}
                 >
                     {events.map((item, idx) => (

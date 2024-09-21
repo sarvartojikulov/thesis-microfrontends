@@ -12,19 +12,21 @@ function App() {
                     "bg-base-300 py-5 px-6 md:py-10 md:px-12 space-y-20 rounded-lg mb-20"
                 )}
             >
-                <h1 className={tw("text-xl md:text-4xl font-bold")}>Popular Events</h1>
+                <h1 className={tw("text-xl md:text-4xl font-bold")}>
+                    Popular Events
+                </h1>
                 <div
                     className={tw(
-                        "flex flex-col gap-y-4 md:flex-row items-center justify-between w-full md:space-x-5"
+                        "gap-y-4 w-full md:gap-x-5 grid grid-cols-1 md:grid-cols-3"
                     )}
                 >
-                    {events.map((item, idx) => (
+                    {events.slice(0, 6).map((item, idx) => (
                         <Card
                             key={idx}
                             title={item.name}
                             description={item.location}
                             img={item.image}
-                            link={"events/" + idx}
+                            link={"events/" + item.id}
                         />
                     ))}
                 </div>

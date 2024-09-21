@@ -7,7 +7,7 @@ import events from "../events";
 const EventDetail = () => {
     let { id } = useParams();
 
-    const event = events[id];
+    const event = events.find(event => event.id == id);
     if (!event) {
         return <div>Not found</div>;
     }

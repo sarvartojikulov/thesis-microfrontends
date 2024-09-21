@@ -4,13 +4,13 @@ import tw from "../utils/tw";
 
 const Card = ({ title, img, description, link }) => {
     return (
-        <div className={tw("card bg-base-100 relative shadow-xl max-h-[400px] max-w-[290px]")}>
-            <figure className={tw("")}>
-                <img className={tw("")} src={img ?? "/pinkfloyd.jpeg"} alt="Shoes" />
+        <div className={tw("card bg-base-100 flex flex-col justify-between shadow-xl max-h-[500px]")}>
+            <figure className={tw("h-auto")}>
+                <img className={tw("")} src={img ?? "/pinkfloyd.jpeg"} alt="Concert Poster" />
             </figure>
             <div
                 className={tw(
-                    "card-body absolute bg-base-100 w-full z-10 bottom-0 px-5 py-4"
+                    "card-body mt-auto bg-base-100 w-full z-10 px-5 py-4 h-44 max-h-44"
                 )}
             >
                 <h2 className={tw("card-title")}>{title}</h2>
