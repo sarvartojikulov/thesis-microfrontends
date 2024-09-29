@@ -11,7 +11,7 @@ const CheckoutThanksPage = () => {
                         Thanks for your Order
                     </h1>
                     <p className={tw("py-6")}>
-                        Your tickets will arrive to your EMail shortly.
+                        Your tickets will arrive to your E-Mail shortly.
                     </p>
                     <Link to="/events">
                         <button className={tw("btn btn-primary")}>

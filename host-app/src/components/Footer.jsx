@@ -3,11 +3,11 @@ import React from "react";
 const Footer = () => {
     return (
         <footer className="footer footer-center bg-base-300 text-base-content mt-10 p-10 rounded-lg">
-        <nav className="grid grid-flow-col gap-4">
-          <a className="link link-hover">Placeholder</a>
-          <a className="link link-hover">Placeholder</a>
-          <a className="link link-hover">Placeholder</a>
-          <a className="link link-hover">Placeholder</a>
+        <nav className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a className="link link-hover underline">Placeholder</a>
+          <a className="link link-hover underline">Placeholder</a>
+          <a className="link link-hover underline">Placeholder</a>
+          <a className="link link-hover underline">Placeholder</a>
         </nav>
         <nav>
           <div className="grid grid-flow-col gap-4">

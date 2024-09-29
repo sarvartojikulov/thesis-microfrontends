@@ -52,7 +52,7 @@ const EventDetail = () => {
                         <button
                             className={tw("btn btn-primary w-full mt-auto")}
                         >
-                            Ticket Kaufen
+                            Buy now 
                         </button>
                     </Link>
                 </div>

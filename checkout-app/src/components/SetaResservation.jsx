@@ -50,7 +50,7 @@ export default function SeatReservation({ onConfirm }) {
     };
 
     return (
-        <div className={tw("max-w-3xl mx-auto p-4")}>
+        <div className={tw("max-w-3xl mx-auto p-2 md:p-2")}>
             <div className={tw("grid grid-cols-10 gap-2 mb-4 text-white")}>
                 {seats.map((seat) => (
                     <button
@@ -73,15 +73,15 @@ export default function SeatReservation({ onConfirm }) {
             </div>
             <div className={tw("flex justify-between items-center mb-4")}>
                 <div>
-                    <p>Ausgewählt: {selectedSeats.length}</p>
-                    <p>Gesamtpreis: ${totalPrice}</p>
+                    <p>Amount: {selectedSeats.length}</p>
+                    <p>Price: ${totalPrice}</p>
                 </div>
                 <button
                     className={tw("btn btn-primary")}
                     onClick={confirmReservation}
                     disabled={selectedSeats.length === 0}
                 >
-                    Auswahl bestätigen
+                    Confirm selection
                 </button>
             </div>
             <div className={tw("flex justify-center space-x-4")}>
@@ -89,19 +89,19 @@ export default function SeatReservation({ onConfirm }) {
                     <div
                         className={tw("w-4 h-4 bg-green-500 rounded-sm mr-2")}
                     ></div>
-                    <span>Verfügbar</span>
+                    <span>Available</span>
                 </div>
                 <div className={tw("flex items-center")}>
                     <div
                         className={tw("w-4 h-4 bg-blue-500 rounded-sm mr-2")}
                     ></div>
-                    <span>Ausgewählt</span>
+                    <span>Active</span>
                 </div>
                 <div className={tw("flex items-center")}>
                     <div
                         className={tw("w-4 h-4 bg-gray-500 rounded-sm mr-2")}
                     ></div>
-                    <span>Reserviert</span>
+                    <span>Reserved</span>
                 </div>
             </div>
         </div>

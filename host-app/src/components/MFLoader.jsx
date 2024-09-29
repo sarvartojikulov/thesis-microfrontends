@@ -9,7 +9,7 @@ const wrapper = ({ children, type }) => {
         <div className={`outline outline-2 ${outlineColor} relative`}>
             <div className={`absolute -top-3 -left-3 ${bgColor}`}>
                 <span className={" py-1 px-2 rounded-xl text-white"}>
-                    mf-{type}
+                    microfrontend-{type}
                 </span>
             </div>
             {children}
