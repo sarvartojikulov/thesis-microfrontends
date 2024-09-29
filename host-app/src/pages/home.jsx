@@ -6,7 +6,7 @@ import EventsSkeleton from "../skeletons/EventsSkeleton";
 import MFLoader from "../components/MFLoader";
 
 const PopularEvents = React.lazy(() =>
-    withTimeout(import("events/PopularEvents"), 3000)
+    withTimeout(import("events/PopularEvents"), 1000)
 );
 
 const Homepage = () => {
@@ -42,9 +42,9 @@ const Homepage = () => {
             <React.Suspense
                 fallback={<EventsSkeleton label={"Popular Events"} />}
             >
-                <MFLoader.wrapper type="events">
+                <MFLoader.Wrapper type="events">
                     <PopularEvents />
-                </MFLoader.wrapper>
+                </MFLoader.Wrapper>
             </React.Suspense>
         </>
     );

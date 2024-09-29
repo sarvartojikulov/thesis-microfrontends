@@ -9,8 +9,8 @@ import CheckoutSkeleton from "./skeletons/CheckoutSkeleton";
 import EventsSkeleton from "./skeletons/EventsSkeleton";
 import { withTimeout } from "./utils/timeout";
 
-const Events = React.lazy(() => withTimeout(import("events/App"), 3000));
-const Checkout = React.lazy(() => withTimeout(import("checkout/App"), 3000));
+const Events = React.lazy(() => withTimeout(import("events/App"), 1000));
+const Checkout = React.lazy(() => withTimeout(import("checkout/App"), 1000));
 
 function App() {
     return (
@@ -21,7 +21,7 @@ function App() {
                     <Route exact path="/" element={<Homepage />} />
                     <Route
                         path="/events/*"
-                        element={Microfrontends.loader(
+                        element={Microfrontends.Loader(
                             Events,
                             "events",
                             <EventsSkeleton label={"Events"} />
@@ -29,7 +29,7 @@ function App() {
                     />
                     <Route
                         path="/checkout/*"
-                        element={Microfrontends.loader(
+                        element={Microfrontends.Loader(
                             Checkout,
                             "checkout",
                             <CheckoutSkeleton />

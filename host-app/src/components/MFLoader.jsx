@@ -1,6 +1,6 @@
 import React from "react";
 
-const wrapper = ({ children, type }) => {
+const Wrapper = ({ children, type }) => {
     const outlineColor =
         type === "events" ? "outline-red-600" : "outline-yellow-600";
     const bgColor = type === "events" ? "bg-red-600" : "bg-yellow-400";
@@ -26,15 +26,15 @@ const wrapper = ({ children, type }) => {
  *
  * @returns {JSX.Element} A React component wrapped in `React.Suspense` and `MFWrapper` with a fallback skeleton.
  */
-const loader = (MFE, type, skeleton) => {
+const Loader = (MFE, type, skeleton) => {
     return (
         <React.Suspense fallback={skeleton ? skeleton : "Loading..."}>
-            <wrapper type={type}>
+            <Wrapper type={type}>
                 <MFE />
-            </wrapper>
+            </Wrapper>
         </React.Suspense>
     );
 };
 
 
-export default {loader, wrapper}
+export default {Loader, Wrapper}

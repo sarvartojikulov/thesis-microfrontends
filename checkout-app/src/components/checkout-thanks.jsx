@@ -8,7 +8,7 @@ const CheckoutThanksPage = () => {
             <div className={tw("hero-content text-center")}>
                 <div className="">
                     <h1 className={tw("text-5xl font-bold")}>
-                        Thanks for your Order
+                        Thanks for your order
                     </h1>
                     <p className={tw("py-6")}>
                         Your tickets will arrive to your E-Mail shortly.
