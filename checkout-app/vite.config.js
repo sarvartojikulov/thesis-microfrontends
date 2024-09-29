@@ -5,43 +5,43 @@ import federation from "@originjs/vite-plugin-federation";
 // https://vitejs.dev/config/
 /** @type {import('vite').UserConfig} */
 export default defineConfig(({ mode }) => {
-    return {
-        server: {
-            port: 4001,
-            strictPort: true,
+  return {
+    server: {
+      port: 4001,
+      strictPort: true,
+    },
+    preview: {
+      strictPort: true,
+      port: 4001,
+    },
+    plugins: [
+      react(),
+      federation({
+        name: "checkout",
+        filename: "remoteEntry.js",
+        exposes: {
+          "./App": "./src/App.jsx",
         },
-        preview: {
-            strictPort: true,
-            port: 4001,
+        shared: {
+          react: {
+            singleton: true,
+          },
+          "react-dom": {
+            singleton: true,
+          },
+          "react-router-dom": {
+            singleton: true,
+          },
         },
-        plugins: [
-            react(),
-            federation({
-                name: "events",
-                filename: "remoteEntry.js",
-                exposes: {
-                    "./App": "./src/App.jsx",
-                },
-                shared: {
-                    react: {
-                        singleton: true,
-                    },
-                    "react-dom": {
-                        singleton: true,
-                    },
-                    "react-router-dom": {
-                        singleton: true,
-                    },
-                },
-            }),
-        ],
-        build: {
-            modulePreload: false,
-            target: "esnext",
-            minify: false,
-            cssCodeSplit: false,
-            assetsDir: "",
-        },
-        base: mode === "production" ? "/checkout-app/latest" : "/",
-    };
+      }),
+    ],
+    build: {
+      modulePreload: false,
+      target: "esnext",
+      minify: false,
+      cssCodeSplit: false,
+      assetsDir: "",
+    },
+    base: mode === "production" ? "/checkout-app/latest" : "/",
+  };
 });

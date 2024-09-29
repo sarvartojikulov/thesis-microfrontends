@@ -1,4 +1,4 @@
-// App.jsx in host-app
+// App.jsx in events-app
 import EventDetail from "./components/event-detail";
 import Events from "./components/events";
 import "./index.css";
@@ -6,12 +6,10 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
     return (
-        <>
-            <Routes>
-                <Route index path={`/`} element={<Events />} />
-                <Route exact path={`/:id`} element={<EventDetail />} />
-            </Routes>
-        </>
+        <Routes>
+            <Route index path={`/`} element={<Events />} />
+            <Route exact path={`/:id`} element={<EventDetail />} />
+        </Routes>
     );
 }
 
