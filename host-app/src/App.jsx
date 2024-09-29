@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/home";
-import loader from "./utils/loader"
+import Microfrontends from "./components/MFLoader"
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import {withTimeout} from "./utils/timeout"
@@ -23,11 +23,11 @@ function App() {
                     <Route exact path="/" element={<Homepage />} />
                     <Route
                         path="/events/*"
-                        element={loader(Events, "events", <EventsSkeleton label={"Events"} />)}
+                        element={Microfrontends.loader(Events, "events", <EventsSkeleton label={"Events"} />)}
                     />
                     <Route
                         path="/checkout/*"
-                        element={loader(Checkout, "checkout", <CheckoutSkeleton />)}
+                        element={Microfrontends.loader(Checkout, "checkout", <CheckoutSkeleton />)}
                     />
                 </Routes>
             </Router>

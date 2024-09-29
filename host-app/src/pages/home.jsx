@@ -1,9 +1,9 @@
 import React from "react";
-import MFWrapper from "../components/MFWrapper";
 import {Link} from "react-router-dom"
 import {imageLink} from "../utils/link"
 import { withTimeout } from "../utils/timeout";
 import EventsSkeleton from "../skeletons/EventsSkeleton";
+import {wrapper} from "../components/MFloader"
 
 const PopularEvents = React.lazy(() => withTimeout(import("events/PopularEvents"), 3000));
 
@@ -35,9 +35,9 @@ const Homepage = () => {
             </div>
 
             <React.Suspense fallback={<EventsSkeleton label={"Popular Events"} />}>
-                <MFWrapper type="events">
+                <wrapper type="events">
                     <PopularEvents />
-                </MFWrapper>
+                </wrapper>
             </React.Suspense>
         </>
     );
