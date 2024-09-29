@@ -1,11 +1,13 @@
 import React from "react";
-import {Link} from "react-router-dom"
-import {imageLink} from "../utils/link"
+import { Link } from "react-router-dom";
+import { imageLink } from "../utils/link";
 import { withTimeout } from "../utils/timeout";
 import EventsSkeleton from "../skeletons/EventsSkeleton";
-import {wrapper} from "../components/MFloader"
+import { wrapper } from "../components/MFLoader";
 
-const PopularEvents = React.lazy(() => withTimeout(import("events/PopularEvents"), 3000));
+const PopularEvents = React.lazy(() =>
+    withTimeout(import("events/PopularEvents"), 3000)
+);
 
 const Homepage = () => {
     return (
@@ -28,13 +30,17 @@ const Homepage = () => {
                             interests, all in just a few clicks.
                         </p>
                         <Link to="events" className="w-full">
-                            <button className="btn btn-primary w-full">All Events</button>
+                            <button className="btn btn-primary w-full">
+                                All Events
+                            </button>
                         </Link>
                     </div>
                 </div>
             </div>
 
-            <React.Suspense fallback={<EventsSkeleton label={"Popular Events"} />}>
+            <React.Suspense
+                fallback={<EventsSkeleton label={"Popular Events"} />}
+            >
                 <wrapper type="events">
                     <PopularEvents />
                 </wrapper>
