@@ -2,29 +2,22 @@
 
 ## Overview
 
-This project consists of multiple microfrontends that integrate into a single cohesive application. The microfrontend architecture enables modular development and deployment, making it scalable and easy to maintain. Below, you will find instructions on how to set up the development environment, build the project, and a list of the required software.
+This project is composed of multiple microfrontends that integrate seamlessly into a single application. By utilizing microfrontend architecture, the application is modular, scalable, and easier to maintain. Below are the steps to set up the development environment, build the project, and details about the required software.
 
 ## Prerequisites
 
-Make sure the following software is installed on your system:
+Ensure the following software is installed on your system:
 
 - **Node.js** (version 16 or higher)
-- **npm** or **yarn** for package management
+- **npm** or **yarn** (for package management)
 - **Docker** (optional, for containerized environments)
-- **Git** for version control
+- **Git** (for version control)
 
 ## Development Setup
 
-1. **Clone the Repository**
+1. **Install Dependencies**
 
-   ```bash
-   git clone <repository-url>
-   cd <repository-folder>
-   ```
-
-2. **Install Dependencies**
-
-   For each microfrontend, navigate to its folder and install the dependencies:
+   For each microfrontend, navigate to its respective folder and install the dependencies:
 
    ```bash
    cd host-app
@@ -37,9 +30,27 @@ Make sure the following software is installed on your system:
    npm install
    ```
 
-3. **Start the Development Environment**
+2. **Set Up Environment Variables**
 
-   To start each microfrontend for development, run the following commands in **separate terminal windows**:
+   To ensure that all microfrontends communicate with the correct remote services during local development, configure the `.env` file in each microfrontend's folder.
+
+   Create a `.env` file in the `host-app`, `checkout-app`, and `events-app` directories with the following content:
+
+   ```
+   VITE_PRODUCTION_DOMAIN="http://localhost:4000"
+   ```
+
+   Alternatively, you can run the following commands to automatically create the `.env` files:
+
+   ```bash
+   echo VITE_PRODUCTION_DOMAIN="http://localhost:4000" >> host-app/.env
+   echo VITE_PRODUCTION_DOMAIN="http://localhost:4000" >> checkout-app/.env
+   echo VITE_PRODUCTION_DOMAIN="http://localhost:4000" >> events-app/.env
+   ```
+
+3. **Start the Development Servers**
+
+   Start each microfrontend in **separate terminal windows** by running the following commands:
 
    ```bash
    cd host-app
@@ -52,11 +63,11 @@ Make sure the following software is installed on your system:
    npm run dev
    ```
 
-   Access the host app at `http://localhost:5173/`
+   After starting, access the host app at `http://localhost:5173/`.
 
 ## Building the Project
 
-To build the microfrontends for production, run the following commands for each microfrontend:
+To build each microfrontend for production, execute the following commands for each microfrontend:
 
 ```bash
 cd host-app
@@ -69,14 +80,12 @@ cd ../checkout-app
 npm run build
 ```
 
-The build output will be available in the `dist` folder.
+The build output will be located in the `dist` folder of each microfrontend.
 
 ## Deployment
 
-You can use any web server or cloud service to host the build files. Common options include:
+The production build files can be hosted on any web server or cloud service. Common hosting options include:
 
 - **Amazon S3 + CloudFront**
 - **NGINX**
 - **GitHub Pages** (for static hosting)
-
-The deployment scripts are included in the repository for convenience.
