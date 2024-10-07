@@ -44,7 +44,7 @@ const EventDetail = () => {
                     </div>
 
                     <Select
-                        label="Datum auswählen"
+                        label="Select date"
                         items={event.dates}
                     ></Select>
 
