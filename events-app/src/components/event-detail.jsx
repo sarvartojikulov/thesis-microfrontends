@@ -29,7 +29,7 @@ const EventDetail = () => {
                         fugiat. Magna commodo non sunt irure ea laborum pariatur
                         occaecat culpa id ea esse. Nisi cupidatat do nulla
                         fugiat laboris esse sint ipsum quis exercitation
-                        deserunt aute.
+                        deserunt.
                     </p>
                     <div className={tw("grid grid-cols-[1fr_2fr] w-full")}>
                         <span className={tw("font-bold")}>City:</span>{" "}
