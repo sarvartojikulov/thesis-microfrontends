@@ -32,14 +32,14 @@ const EventDetail = () => {
                         deserunt aute.
                     </p>
                     <div className={tw("grid grid-cols-[1fr_2fr] w-full")}>
-                        <span className={tw("font-bold")}>Stadt :</span>{" "}
+                        <span className={tw("font-bold")}>City:</span>{" "}
                         <span>{event.location}</span>
-                        <span className={tw("font-bold")}>Datum: </span>
+                        <span className={tw("font-bold")}>Dates: </span>
                         <span>
                             {event.dates[0]} -{" "}
                             {event.dates[event.dates.length - 1]}{" "}
                         </span>
-                        <span className={tw("font-bold")}>Verfügbar: </span>
+                        <span className={tw("font-bold")}>Available: </span>
                         <span>10 Tickets</span>
                     </div>
 
